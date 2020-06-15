@@ -34,6 +34,9 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
+        //проверка работы гита
+        Image imageCircle3 = new Image(getClass().getResourceAsStream("circle.png"));
+
         Image imageCircle = new Image(getClass().getResourceAsStream("circle.png"));
         Image imageSquare = new Image(getClass().getResourceAsStream("square.png"));
         Image imageEllips = new Image(getClass().getResourceAsStream("oval.png"));
