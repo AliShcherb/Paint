@@ -34,8 +34,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
 
-        //проверка работы гита
-        Image imageCircle3 = new Image(getClass().getResourceAsStream("circle.png"));
+
 
         Image imageCircle = new Image(getClass().getResourceAsStream("circle.png"));
         Image imageSquare = new Image(getClass().getResourceAsStream("square.png"));
@@ -459,7 +458,8 @@ public class Main extends Application {
                     double end =line.getEndX()-line.getStartX();
                     redo_stack.push(new Polygon(line.getStartX(),line.getStartY(),line.getEndX(), line.getEndY(),line.getEndX()-2*end, line.getEndY()));
                 }
-                else if(removedShape.getClass() == Polygon.class) {
+
+                /*else if(removedShape.getClass() == Polygon.class) {
                     Polygon tempHexagon = (Polygon) removedShape;
                     tempHexagon.setStroke(gc.getStroke());
                     tempHexagon.setStrokeWidth(gc.getLineWidth());
@@ -483,7 +483,7 @@ public class Main extends Application {
                     double fy = line.getStartY()+(line.getStartY()-line.getEndY());
 
                     redo_stack.push(new Polygon(ax,ay,bx,by,cx,cy,dx,dy,ex,ey,fx,fy));
-                }
+                }*/
                 else if(removedShape.getClass() == Ellipse.class) {
                     Ellipse tempElps = (Ellipse) removedShape;
                     tempElps.setFill(gc.getFill());
@@ -531,7 +531,7 @@ public class Main extends Application {
                         gc.strokeOval(temp.getCenterX(), temp.getCenterY(), temp.getRadiusX(), temp.getRadiusY());
                     }
 
-                        else if(shape.getClass() == Polygon.class) {
+                        /*else if(shape.getClass() == Polygon.class) {
                         Polygon temp = (Polygon) shape;
                         gc.setLineWidth(temp.getStrokeWidth());
                         gc.setStroke(temp.getStroke());
@@ -560,7 +560,7 @@ public class Main extends Application {
                         gc.fillPolygon(x,y,n);
                         gc.strokePolygon(x,y,n);
                         undo_stack.push(new Polygon(ax,ay,bx,by,cx,cy,dx,dy,ex,ey,fx,fy));
-                    }
+                    }*/
                    else if(shape.getClass() == Polygon.class) {
                         Polygon temp = (Polygon) shape;
                         gc.setLineWidth(temp.getStrokeWidth());
@@ -603,10 +603,7 @@ public class Main extends Application {
                     Rectangle tempRect = (Rectangle) shape;
                     gc.fillRect(tempRect.getX(), tempRect.getY(), tempRect.getWidth(), tempRect.getHeight());
                     gc.strokeRect(tempRect.getX(), tempRect.getY(), tempRect.getWidth(), tempRect.getHeight());
-
                     undo_stack.push(new Rectangle(tempRect.getX(), tempRect.getY(), tempRect.getWidth(), tempRect.getHeight()));
-
-
                     tempRect = (Rectangle) undo_stack.lastElement();
                     tempRect.setFill(gc.getFill());
                     tempRect.setStroke(gc.getStroke());
@@ -640,17 +637,15 @@ public class Main extends Application {
                     tempTriangle.setStroke(gc.getStroke());
                     tempTriangle.setStrokeWidth(gc.getLineWidth());
                 }
-               else if(shape.getClass() == Polygon.class) {
+               /*else if(shape.getClass() == Polygon.class) {
                     Polygon tempHexagon = (Polygon) shape;
                     double end =line.getEndX()-line.getStartX();
                     //System.out.println(end);
-
-
-                    tempHexagon = (Polygon) undo_stack.lastElement();
+                     tempHexagon = (Polygon) undo_stack.lastElement();
                     tempHexagon.setFill(gc.getFill());
                     tempHexagon.setStroke(gc.getStroke());
                     tempHexagon.setStrokeWidth(gc.getLineWidth());
-                }
+                }*/
                 else if(shape.getClass() == Ellipse.class) {
                     Ellipse tempElps = (Ellipse) shape;
                     gc.fillOval(tempElps.getCenterX(), tempElps.getCenterY(), tempElps.getRadiusX(), tempElps.getRadiusY());
